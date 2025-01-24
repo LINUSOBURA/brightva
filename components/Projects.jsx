@@ -1,8 +1,40 @@
+'use client'
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus } from "@fortawesome/free-solid-svg-icons";
+import { useState } from 'react';
+import Image from 'next/image';
+
+const projects = [
+  {
+    id: 1,
+    title: "Project One",
+    description: "This is the first project description.",
+    image: "/bright_project.jpg",
+  },
+  {
+    id: 2,
+    title: "Project Two",
+    description: "This is the second project description.",
+    image: "/project2.jpg",
+  },
+  {
+    id: 3,
+    title: "Project Three",
+    description: "This is the third project description.",
+    image: "/project3.jpg",
+  },
+];
 
 export default function Projects() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === projects.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
   return (
     <>
       <div className="flex flex-col min-h-screen w-full">
@@ -11,102 +43,50 @@ export default function Projects() {
             Welcome to my Creative World!
           </p>
         </div>
-        <div className="services container px-12 py-32 min-h-screen">
-          <h1 className="text-2xl md:text-4xl xl:text-6xl font-bold">
-            My Projects
-          </h1>
-          <FontAwesomeIcon
-            icon={faMinus}
-            style={{ color: "#294dea", fontSize: "4rem" }}
-          />
-          <p className="text-lg md:text-xl xl:text-xl font-thin">
-            Here is an highlight of some of my work, take a look around and I
-            hope it inspires you!
-          </p>
-        </div>
-      </div>
-      <section
-        id="portfolio"
-        className="portfolio-section py-8 px-4 bg-[#080808] text-gray-200"
-      >
-        <div className="container mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Portfolio Showcase</h2>
-            <p className="text-lg text-indigo-500 font-semibold">
-              Discover my latest projects and success stories
-            </p>
+
+        <div className="flex w-full min-h-screen">
+
+
+          {/* Left side - Project Cards */}
+          <div className="w-2/3 bg-primary-a40 flex flex-col justify-center items-center p-6 relative">
+            <div
+              className="relative w-full h-full cursor-pointer transition-all duration-700 ease-in-out transform"
+              onClick={() => alert(`Opening ${projects[currentIndex].title}`)}
+            >
+              <Image
+                src={projects[currentIndex].image}
+                alt={projects[currentIndex].title}
+                layout="fill"
+                objectFit="cover"
+                className="rounded-lg"
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-white p-4">
+                <h2 className="text-2xl font-bold">{projects[currentIndex].title}</h2>
+                <p className="mt-2 text-center">{projects[currentIndex].description}</p>
+              </div>
+            </div>
+
+            {/* Navigation Arrow */}
+            <button
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-3 rounded-full shadow-lg hover:bg-gray-700 transition"
+              onClick={handleNext}
+            >
+              →
+            </button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {[
-              {
-                title: "Awesome Project 1",
-                category: "App Development",
-                image:
-                  "https://spacema-dev.com/elevate/assets/images/portfolio-1.png",
-                link: "/project-1",
-              },
-              {
-                title: "Awesome Project 2",
-                category: "Branding",
-                image:
-                  "https://spacema-dev.com/elevate/assets/images/portfolio-2.png",
-                link: "/project-2",
-              },
-              {
-                title: "Awesome Project 3",
-                category: "Web Design, Branding",
-                image:
-                  "https://spacema-dev.com/elevate/assets/images/portfolio-3.png",
-                link: "/project-3",
-              },
-              {
-                title: "Awesome Project 4",
-                category: "Web Design, Branding",
-                image:
-                  "https://spacema-dev.com/elevate/assets/images/portfolio-4.png",
-                link: "/project-4",
-              },
-              {
-                title: "Awesome Project 5",
-                category: "Web Design, Branding",
-                image:
-                  "https://spacema-dev.com/elevate/assets/images/portfolio-5.png",
-                link: "/project-5",
-              },
-              {
-                title: "Awesome Project 6",
-                category: "Web Design, Branding",
-                image:
-                  "https://spacema-dev.com/elevate/assets/images/portfolio-6.png",
-                link: "/project-6",
-              },
-            ].map((project, index) => (
-              <div
-                key={index}
-                className="group portfolio-item relative hover:shadow-lg shadow-md rounded-lg overflow-hidden"
-              >
-                <a href={project.link}>
-                  <img
-                    className="w-full h-60 object-cover"
-                    src={project.image}
-                    alt={project.title}
-                  />
-                  <div className="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-r from-indigo-500 to-pink-500 opacity-0 transition duration-300 ease-in-out group-hover:opacity-70"></div>
-                  <div className="p-4 flex flex-col items-center justify-between relative z-10">
-                    <h3 className="text-lg font-medium text-txt group-hover:text-gray-dark">
-                      {project.title}
-                    </h3>
-                    <span className="text-sm font-bold text-pink-500 group-hover:text-indigo-500">
-                      {project.category}
-                    </span>
-                  </div>
-                </a>
-              </div>
-            ))}
+          {/* Right side - Image */}
+          <div className="w-1/3 relative">
+            <Image
+              src={'/bright_project.jpg'}
+              alt={projects[currentIndex].title}
+              layout="fill"
+              objectFit="cover"
+            />
           </div>
         </div>
-      </section>
+      </div>
+
     </>
   );
 }

@@ -5,7 +5,7 @@ import { faAngleDoubleDown } from "@fortawesome/free-solid-svg-icons";
 
 export default function Home() {
   const backgroundImageStyle = {
-    backgroundImage: 'url("/home.jpg")',
+    backgroundImage: 'url("/bright_home_2 (1).png")',
     backgroundSize: "cover",
     backgroundPosition: "center",
     height: "100vh",
@@ -31,7 +31,7 @@ export default function Home() {
             Bright Masibo
           </h1>
           <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
-            Hello...
+            Hello World!
           </button>
         </div>
 

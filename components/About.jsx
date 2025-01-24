@@ -4,15 +4,15 @@ import { faMinus } from "@fortawesome/free-solid-svg-icons";
 
 export default function About() {
   return (
-    <div className="about px-12 py-32 min-h-fit text-gray-200 bg-myblue">
-      <h1 className="text-2xl md:text-4xl xl:text-6xl font-bold">
+    <div className="about px-12 py-32 min-h-fit bg-tonal-a0">
+      <h1 className="text-2xl md:text-4xl xl:text-6xl font-bold text-white">
         My name is Bright
       </h1>
       <FontAwesomeIcon
         icon={faMinus}
-        style={{ color: "#ffffff", fontSize: "4rem" }}
+        style={{ color: "#7071f0", fontSize: "4rem" }}
       />
-      <p className="text-lg md:text-xl xl:text-xl font-thin">
+      <p className="text-lg md:text-xl xl:text-xl font-thin text-zinc-300">
         Hi, I’m a certified Virtual Assistant with a knack for efficiency,
         organization, and creative content solutions. I specialize in
         streamlining administrative tasks and crafting engaging visuals to
