@@ -4,7 +4,10 @@ import { faMinus } from "@fortawesome/free-solid-svg-icons";
 
 export default function About() {
   return (
-    <div className="about px-12 py-32 min-h-fit bg-tonal-a0">
+    <div
+      className="relative about px-12 py-32 min-h-fit bg-surface-a0"
+      id="about"
+    >
       <h1 className="text-2xl md:text-4xl xl:text-6xl font-bold text-white">
         My name is Bright
       </h1>
@@ -22,6 +25,11 @@ export default function About() {
         and my goal is to save you time, reduce stress, and help you focus on
         what truly matters. Let’s collaborate to simplify your day! 😊
       </p>
+
+      {/* Separator Line */}
+      <div className="flex justify-center">
+        <div className="absolute w-1/2 bottom-0 border-t border-gray-800 text-center"></div>
+      </div>
     </div>
   );
 }

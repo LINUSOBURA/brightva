@@ -5,7 +5,7 @@ import { faAngleDoubleDown } from "@fortawesome/free-solid-svg-icons";
 
 export default function Home() {
   const backgroundImageStyle = {
-    backgroundImage: 'url("/bright_home_2 (1).png")',
+    backgroundImage: 'url("/bright_home.png")',
     backgroundSize: "cover",
     backgroundPosition: "center",
     height: "100vh",
@@ -36,14 +36,16 @@ export default function Home() {
         </div>
 
         <div className="pb-4">
-          <button>
-            <FontAwesomeIcon
-              icon={faAngleDoubleDown}
-              bounce
-              style={{ color: "#ffffff" }}
-              size="2x"
-            />
-          </button>
+          <a href="#about">
+            <button>
+              <FontAwesomeIcon
+                icon={faAngleDoubleDown}
+                bounce
+                style={{ color: "#ffffff" }}
+                size="2x"
+              />
+            </button>
+          </a>
         </div>
       </div>
     </div>

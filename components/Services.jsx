@@ -2,7 +2,6 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus } from "@fortawesome/free-solid-svg-icons";
 
-
 export default function Services() {
   const services = [
     {
@@ -12,18 +11,16 @@ export default function Services() {
         "Calendar and Email Management",
         "Data Entry and Organization Research and Report Preparation",
         "Travel Planning and Itinerary Creation",
-        "Project Coordination and Task Scheduling"
+        "Project Coordination and Task Scheduling",
       ],
-
     },
     {
       emoji: "📸",
       title: "Creative Content Solutions",
       items: [
         "Photography: Product photography, event coverage, and brand storytelling",
-        "Videography: Promotional videos, social media reels, and documentary-style storytelling"
+        "Videography: Promotional videos, social media reels, and documentary-style storytelling",
       ],
-
     },
     {
       emoji: "🎨",
@@ -32,7 +29,7 @@ export default function Services() {
         "Branding",
         "Logo creation",
         "Social media graphics",
-        "Marketing materials"
+        "Marketing materials",
       ],
     },
     {
@@ -42,14 +39,16 @@ export default function Services() {
         "Content scheduling",
         "Analytics tracking",
         "Creativity assistance",
-        "Audience engagement strategies"
+        "Audience engagement strategies",
       ],
-
-    }
+    },
   ];
 
   return (
-    <div className="services  px-12 py-32 min-h-screen bg-surface-a0">
+    <div
+      className="services  px-12 py-32 min-h-screen bg-surface-a0"
+      id="services"
+    >
       <h1 className="text-2xl md:text-4xl xl:text-6xl font-bold text-white">
         My Services
       </h1>
@@ -65,11 +64,16 @@ export default function Services() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 py-4 md:py-8 lg:py-12">
         {services.map((service, index) => (
-          <div key={index} className={`service-card bg-surface-a10 hover:bg-tonal-a10 rounded-lg shadow-lg p-6 text-center`}>
+          <div
+            key={index}
+            className={`service-card bg-surface-a10 hover:bg-tonal-a10 rounded-lg shadow-lg p-6 text-center`}
+          >
             <div className="text-5xl mb-4 transition-transform duration-300 transform hover:scale-110">
               {service.emoji}
             </div>
-            <h3 className={`text-2xl font-semibold mb-2 transition-colors duration-300 hover:text-primary-a10 text-white`}>
+            <h3
+              className={`text-2xl font-semibold mb-2 transition-colors duration-300 hover:text-primary-a10 text-white`}
+            >
               {service.title}
             </h3>
             <span className={`text-zinc-300 text-center`}>
