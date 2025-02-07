@@ -1,7 +1,14 @@
 import React from "react";
 import { useState } from "react";
+import Image from "next/image";
 
-export const CertificationCard = ({ imageUrl, title, description, date }) => {
+export const CertificationCard = ({
+  imageUrl,
+  certImage,
+  title,
+  description,
+  date,
+}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => setIsModalOpen(true);
@@ -34,6 +41,14 @@ export const CertificationCard = ({ imageUrl, title, description, date }) => {
             <h2 className="text-xl font-bold mb-4 text-zinc-200">{title}</h2>
             <p className="text-zinc-400 mb-4">{description}</p>
             <p className="text-sm text-gray-500">Issued on: {date}</p>
+            <p>
+              <Image
+                src={certImage}
+                width={500}
+                height={300}
+                alt="certificate Aice"
+              />
+            </p>
             <button
               className="mt-4 px-4 py-2 bg-primary-a30 text-white rounded hover:bg-primary-a10"
               onClick={closeModal}

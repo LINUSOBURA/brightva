@@ -3,6 +3,28 @@ import Image from "next/image";
 import { FaTiktok, FaLinkedinIn, FaInstagram, FaYoutube } from "react-icons/fa";
 
 export const Contact = () => {
+  const socials = [
+    {
+      name: "Linkedin",
+      link: "https://www.linkedin.com/in/masibowanjala/",
+      icon: <FaLinkedinIn />,
+    },
+    {
+      name: "Instagram",
+      link: "https://www.instagram.com/masibothegrapher/#",
+      icon: <FaInstagram />,
+    },
+    {
+      name: "Youtube",
+      link: "https://www.youtube.com/@masibobright785",
+      icon: <FaYoutube />,
+    },
+    {
+      name: "Tiktok",
+      link: "",
+      icon: <FaTiktok />,
+    },
+  ];
   return (
     <section
       className="body-font relative bg-surface-a0 text-gray-400 min-h-screen flex flex-col justify-center"
@@ -26,7 +48,7 @@ export const Contact = () => {
                 aria-label="Chat on WhatsApp"
                 href="https://wa.me/+254707912513"
                 target="_blank"
-                className="text-center"
+                className="text-center duration-300 ease-in-out hover:scale-110"
               >
                 {" "}
                 <Image
@@ -49,27 +71,16 @@ export const Contact = () => {
                 Nairobi, Kenya
               </p>
               <span className="inline-flex text-sm sm:text-lg md:text-xg xl:text-2xl">
-                <a
-                  className="ml-4 text-gray-500"
-                  href="https://www.linkedin.com/in/masibowanjala/"
-                >
-                  <FaLinkedinIn />
-                </a>
-                <a
-                  className="ml-4 text-gray-500"
-                  href="https://www.instagram.com/masibothegrapher/#"
-                >
-                  <FaInstagram />
-                </a>
-                <a
-                  className="ml-4 text-gray-500"
-                  href="https://www.youtube.com/@masibobright785"
-                >
-                  <FaYoutube />
-                </a>
-                <a className="ml-4 text-gray-500">
-                  <FaTiktok />
-                </a>
+                {socials.map((site, index) => (
+                  <a
+                    key={index}
+                    className="ml-4 text-gray-500 hover:scale-125 ease-in-out duration-300"
+                    href={site.link}
+                    target="_blank"
+                  >
+                    {site.icon}
+                  </a>
+                ))}
               </span>
             </div>
           </div>

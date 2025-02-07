@@ -22,30 +22,40 @@ const testimonials = [
     role: "Marketing Director at Global Enterprises",
     Testimony:
       "Efficient, reliable, and always proactive—this virtual assistant has transformed the way we work.",
+    avatar:
+      "https://images.unsplash.com/photo-1511485977113-f34c92461ad9?crop=faces&cs=tinysrgb&fit=crop&fm=jpg&ixid=MnwxfDB8MXxhbGx8fHx8fHx8fHwxNjIwMTQ5ODEx&ixlib=rb-1.2.1&q=80&w=100&h=100",
   },
   {
     person: "Alex Thompson",
     role: "Project Manager at FinTech Solutions",
     Testimony:
       "With the help of my virtual assistant, I've been able to focus more on strategic work. Excellent service!",
+    avatar:
+      "https://images.unsplash.com/photo-1511485977113-f34c92461ad9?crop=faces&cs=tinysrgb&fit=crop&fm=jpg&ixid=MnwxfDB8MXxhbGx8fHx8fHx8fHwxNjIwMTQ5ODEx&ixlib=rb-1.2.1&q=80&w=100&h=100",
   },
   {
     person: "Olivia Brown",
     role: "Founder of Eco Ventures",
     Testimony:
       "The support I get is invaluable. It’s like having a dedicated team member without the overhead.",
+    avatar:
+      "https://images.unsplash.com/photo-1511485977113-f34c92461ad9?crop=faces&cs=tinysrgb&fit=crop&fm=jpg&ixid=MnwxfDB8MXxhbGx8fHx8fHx8fHwxNjIwMTQ5ODEx&ixlib=rb-1.2.1&q=80&w=100&h=100",
   },
   {
     person: "David Clarke",
     role: "Head of Operations at StartUp Hub",
     Testimony:
       "This virtual assistant has consistently exceeded my expectations in terms of speed and quality of work.",
+    avatar:
+      "https://images.unsplash.com/photo-1511485977113-f34c92461ad9?crop=faces&cs=tinysrgb&fit=crop&fm=jpg&ixid=MnwxfDB8MXxhbGx8fHx8fHx8fHwxNjIwMTQ5ODEx&ixlib=rb-1.2.1&q=80&w=100&h=100",
   },
   {
     person: "Sophia Williams",
     role: "Creative Director at Media Group",
     Testimony:
       "Amazing attention to detail, organization, and communication. I couldn't do my job without this assistant!",
+    avatar:
+      "https://images.unsplash.com/photo-1511485977113-f34c92461ad9?crop=faces&cs=tinysrgb&fit=crop&fm=jpg&ixid=MnwxfDB8MXxhbGx8fHx8fHx8fHwxNjIwMTQ5ODEx&ixlib=rb-1.2.1&q=80&w=100&h=100",
   },
 ];
 

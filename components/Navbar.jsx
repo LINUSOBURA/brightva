@@ -33,7 +33,9 @@ export default function Navbar() {
       }`}
     >
       <div className="container mx-auto flex justify-between items-center px-6 py-4">
-        <div className="text-2xl font-bold text-white">Bright</div>
+        <div className="text-2xl font-bold text-white">
+          <a href="/">Bright</a>
+        </div>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-6">
