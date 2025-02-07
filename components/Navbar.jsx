@@ -5,10 +5,21 @@ import Link from "next/link";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
+    const sections = document.querySelectorAll("section");
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+      let currentSection = "";
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        if (window.scrollY >= sectionTop - 100) {
+          currentSection = section.getAttribute("id");
+        }
+      });
+      setActiveSection(currentSection);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -16,47 +27,64 @@ export default function Navbar() {
   }, []);
 
   return (
-    <div
-      className={`flex justify-between pt-4 px-8 w-full items-center sticky top-0 z-50 ${
-        isScrolled ? "bg-surface-a0" : "bg-transparent"
+    <nav
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        isScrolled ? "bg-black/80 backdrop-blur-lg shadow-md" : "bg-transparent"
       }`}
     >
-      <div className="font-bold">B</div>
-      <div>
-        <div className="flex md:hidden">
-          <button
-            className="text-2xl focus:outline-none"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            &#9776; {/* Hamburger Icon */}
-          </button>
+      <div className="container mx-auto flex justify-between items-center px-6 py-4">
+        <div className="text-2xl font-bold text-white">Bright</div>
+
+        {/* Desktop Menu */}
+        <div className="hidden md:flex space-x-6">
+          {["About", "Services", "Projects", "Clients", "Contact"].map(
+            (item) => (
+              <Link
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                className="text-white text-lg font-medium hover:text-blue-400 transition"
+              >
+                <span
+                  className={`text-lg font-medium transition ${
+                    activeSection === item.toLowerCase()
+                      ? "text-primary-a20"
+                      : "text-white hover:text-primary-a50"
+                  }`}
+                >
+                  {item}
+                </span>
+              </Link>
+            )
+          )}
         </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden text-white text-3xl focus:outline-none"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          &#9776;
+        </button>
+
+        {/* Mobile Dropdown */}
         <div
-          className={`w-full p-4 shadow-lg md:relative md:block md:bg-transparent md:shadow-none ${
-            isOpen
-              ? "block bg-primary-a50 opacity-70 absolute top-16 right-0 text-white text-right"
-              : "hidden"
+          className={`absolute top-16 right-6 w-48 bg-black/90 text-white rounded-lg shadow-md overflow-hidden transition-all ${
+            isOpen ? "block" : "hidden"
           }`}
         >
-          <ol className="flex flex-col md:flex-row gap-5">
-            <li className="active:text-blue-500 hover:text-primary-a30">
-              <Link href={"#about"}>About</Link>
-            </li>
-            <li className="active:text-blue-500 hover:text-primary-a30">
-              <Link href={"#services"}>Services</Link>
-            </li>
-            <li className="active:text-blue-500 hover:text-primary-a30">
-              <Link href={"#expertise"}>Expertise</Link>
-            </li>
-            <li className="active:text-blue-500 hover:text-primary-a30">
-              <Link href={"#projects"}>Projects</Link>
-            </li>
-            <li className="active:text-blue-500 hover:text-primary-a30">
-              <Link href={"#contact"}>Contact</Link>
-            </li>
-          </ol>
+          {["About", "Services", "Projects", "Clients", "Contact"].map(
+            (item) => (
+              <Link
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                className="block px-6 py-3 text-lg hover:bg-blue-600"
+              >
+                {item}
+              </Link>
+            )
+          )}
         </div>
       </div>
-    </div>
+    </nav>
   );
 }

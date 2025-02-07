@@ -1,7 +1,5 @@
 "use client";
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMinus } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import Image from "next/image";
 
@@ -39,18 +37,6 @@ const projects = [
       "A sustainable energy solutions company focused on clean and green power alternatives. The logo symbolizes eco-friendly innovation and a commitment to a greener future.",
     image: "/GreenLogoProject.jpg",
   },
-  {
-    id: 6,
-    title: "Project Three",
-    description: "This is the third project description.",
-    image: "/project3.jpg",
-  },
-  {
-    id: 7,
-    title: "Project Three",
-    description: "This is the third project description.",
-    image: "/project3.jpg",
-  },
 ];
 
 export default function Projects() {
@@ -76,7 +62,7 @@ export default function Projects() {
   };
 
   return (
-    <div id="projects">
+    <section id="projects">
       <div className="flex flex-col min-h-screen w-full">
         <div className="h-1/2 bg-[#080808] text-gray-200 w-full px-12 py-32 flex items-center justify-center">
           <p className="text-xl md:text-2xl xl:text-4xl font-bold border-y-2 py-4">
@@ -151,6 +137,6 @@ export default function Projects() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
